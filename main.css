@@ -47,6 +47,13 @@ p {
     text-shadow: var(--green-text-shadow);
 }
 
+a {
+    text-decoration: none;
+    color: var(--link-color);
+    text-shadow: var(--green-text-shadow);
+    transition: .7s;
+}
+
 @media screen and (min-width:601px) {
     body:before {
         content: "";
@@ -131,6 +138,24 @@ p {
     color: #fff;
     padding: 10px 15px;
     margin: 5px;
+}
+
+.navlink {
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 3px;
+    font-family: cascadia code;
+    font-size: 14px;
+    image-rendering: pixelated;
+    text-rendering: optimizeSpeed;
+    text-rendering: geometricPrecision;
+    text-shadow: var(--green-text-shadow);
+}
+
+#mudkip {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
 }
 
 #jeffpfp {
