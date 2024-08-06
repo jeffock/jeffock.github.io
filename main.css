@@ -20,6 +20,8 @@
     --body-text-shadow: 0 0 20px #ffffff4a, 0 0 20px #00ffab45;
     --green-text-shadow: 0 0 20px #08bd9882;
     --link-color: #2c9080;
+    --firefox-body-shadow: 0 0 20px #ffffff31, 0 0 20px #00ffab45;
+    --firefox-green-shadow: 0 0 20px #08bd994f;
 }
 
 body {
@@ -58,6 +60,17 @@ a:hover {
 }
 
 @media screen and (min-width:601px) {
+    @supports(-mox-appearance:none) {
+        body {
+            text-shadow:var(--firefox-body-shadow)!important
+        }
+        h2 {
+            text-shadow:var(--firefox-green-shadow)!important
+        }
+        a {
+            text-shadow:var(--firefox-green-shadow)!important
+        }
+    }
     body:before {
         content: "";
         position: fixed;
