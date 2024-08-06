@@ -24,8 +24,13 @@
     --firefox-green-shadow: 0 0 20px #08bd994f;
 }
 
+html {
+    position: relative;
+}
+
 body {
     overflow-x: hidden;
+    position: relative;
     margin: 0;
     background-color: #000;
     image-rendering: pixelated;
@@ -138,12 +143,12 @@ a:hover {
 }
 
 #maintd {
-    width: 75%;
+    width: 675px;
     vertical-align: baseline;
 }
 
 #menutd {
-    width: 25%;
+    width: 225px;
     vertical-align: baseline;
 }
 
