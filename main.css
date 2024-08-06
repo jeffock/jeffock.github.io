@@ -1,10 +1,10 @@
 @font-face {
     font-family: cascadia code;
     src:
-        url(fonts/otf/CascadiaCode-Bold.otf) format("opentype"),
-        url(fonts/ttf/CascadiaCode-Bold.ttf) format("truetype"),
-        url(fonts/woff2/CascadiaCode-Bold.woff2) format("woff2");
-    font-weight: 400;
+        url(fonts/otf/CascadiaCode-Light.otf) format("opentype"),
+        url(fonts/ttf/CascadiaCode-Light.ttf) format("truetype"),
+        url(fonts/woff2/CascadiaCode-Light.woff2) format("woff2");
+    font-weight: 200;
     font-style: normal;
 }
 @font-face {
@@ -35,6 +35,16 @@ h2 {
     margin: 0;
     text-shadow: var(--green-text-shadow);
     transition: .7s;
+}
+
+p {
+    color: #fff;
+    font-family: cascadia code;
+    font-size: 14px;
+    image-rendering: pixelated;
+    text-rendering: optimizeSpeed;
+    text-rendering: geometricPrecision;
+    text-shadow: var(--green-text-shadow);
 }
 
 @media screen and (min-width:601px) {
@@ -100,7 +110,7 @@ h2 {
 
 #logo {
     text-align: center;
-    padding-top: 5px;
+    padding-top: 10px;
     margin-right: 50px;
 }
 
@@ -121,4 +131,11 @@ h2 {
     color: #fff;
     padding: 10px 15px;
     margin: 5px;
+}
+
+#jeffpfp {
+    float: left;
+    margin: 10px 10px 5px 5px;
+    width: 100px;
+    height: 100px;
 }
