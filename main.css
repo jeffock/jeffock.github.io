@@ -60,7 +60,7 @@ a:hover {
 }
 
 @media screen and (min-width:601px) {
-    @supports(-mox-appearance:none) {
+    @supports(-moz-appearance:none) {
         body {
             text-shadow:var(--firefox-body-shadow)!important
         }
