@@ -52,6 +52,18 @@ p {
     text-rendering: optimizeSpeed;
     text-rendering: geometricPrecision;
     text-shadow: var(--green-text-shadow);
+    margin-right: 15px;
+}
+
+li {
+    color: #fff;
+    font-family: cascadia code;
+    font-size: 14px;
+    image-rendering: pixelated;
+    text-rendering: optimizeSpeed;
+    text-rendering: geometricPrecision;
+    text-shadow: var(--green-text-shadow); 
+    margin-right: 15px;   
 }
 
 a {
@@ -133,6 +145,7 @@ a:hover {
 
 #container {
     width: 900px;
+    text-align: justify;
     margin: 0 auto;
 }
 
