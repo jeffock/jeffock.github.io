@@ -1,9 +1,9 @@
 @font-face {
-    font-family: cascadia code;
+    font-family: cascadia mono;
     src:
-        url(fonts/otf/CascadiaCode-Light.otf) format("opentype"),
-        url(fonts/ttf/CascadiaCode-Light.ttf) format("truetype"),
-        url(fonts/woff2/CascadiaCode-Light.woff2) format("woff2");
+        url(fonts/otf/CascadiaMono-Light.otf) format("opentype"),
+        url(fonts/ttf/CascadiaMono-Light.ttf) format("truetype"),
+        url(fonts/woff2/CascadiaMono-Light.woff2) format("woff2");
     font-weight: 200;
     font-style: normal;
 }
@@ -46,7 +46,7 @@ h2 {
 
 p {
     color: #fff;
-    font-family: cascadia code;
+    font-family: cascadia mono;
     font-size: 14px;
     image-rendering: pixelated;
     text-rendering: optimizeSpeed;
@@ -57,8 +57,8 @@ p {
 
 li {
     color: #fff;
-    font-family: cascadia code;
-    font-size: 14px;
+    font-family: cascadia mono;
+    font-size: 13px;
     image-rendering: pixelated;
     text-rendering: optimizeSpeed;
     text-rendering: geometricPrecision;
@@ -178,7 +178,7 @@ a:hover {
     color: #fff;
     display: inline-block;
     margin-bottom: 3px;
-    font-family: cascadia code;
+    font-family: cascadia mono;
     font-size: 14px;
     image-rendering: pixelated;
     text-rendering: optimizeSpeed;
