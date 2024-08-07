@@ -165,6 +165,13 @@ a:hover {
     vertical-align: baseline;
 }
 
+#chaewon {
+    display: inline;
+    image-rendering: pixelated;
+    text-rendering: optimizeSpeed;
+    text-rendering: geometricPrecision;
+}
+
 .box {
     background-color: #000000a8;
     border: 2px solid #383838;
@@ -172,6 +179,10 @@ a:hover {
     color: #fff;
     padding: 10px 15px;
     margin: 5px;
+}
+
+.centerbox {
+    text-align: center;
 }
 
 .navlink {
