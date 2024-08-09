@@ -206,7 +206,16 @@ footer {
             text-shadow:var(--firefox-green-shadow)!important
         }
     }
-    body::before {
+
+    html {
+        position: relative;
+    }
+    body {
+        overflow-x: hidden;
+        position: static;
+    }
+
+    body:before {
         content: "";
         position: fixed;
         opacity: .2;
@@ -224,7 +233,7 @@ footer {
         animation-timing-function: steps(4);
         box-shadow: inset 0 0 10em rgb(0 0 0/40%)
     }
-    body::after {
+    body:after {
         content: "";
         position: fixed;
         opacity: .2;
@@ -251,6 +260,7 @@ footer {
     }
 
     .static-overlay {
+        position: relative;
         display: none;
     }
 
