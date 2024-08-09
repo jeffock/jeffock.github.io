@@ -213,8 +213,8 @@ footer {
 
     body {
         overflow-x: hidden;
-        position: relative;
-        display: flex;
+        position: static;
+        width: 900px;
     }
     
     #container {
