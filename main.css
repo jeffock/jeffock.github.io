@@ -169,7 +169,34 @@ a:hover {
     font-family: pixel nes;
     font-size: 30px;
     color: white;
-    padding-bottom: 10px;
+    padding-top: 1.5rem;
+}
+
+.marquee {
+    width: 100%;
+    grid-column-gap: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    overflow: hidden;
+}
+.marquee-content {
+    min-width: 100%;
+    grid-column-gap: 1rem;
+    flex-shrink: 0;
+    flex: none;
+    justify-content: space-around;
+    display: flex;
+}
+.scroll {
+    animation: scroll 40s linear infinite;
+}
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-50% - 1rem));
+    }
 }
 
 #maintd {
