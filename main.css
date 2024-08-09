@@ -22,6 +22,13 @@
     font-weight: 400;
     font-style: normal;
 }
+@font-face {
+    font-family: minecraft;
+    src:
+        url(fonts/ttf/Minecraftia-Regular.ttf) format("truetype");
+    font-weight: 200;
+    font-style: normal;
+}
 
 :root {
     --body-text-shadow: 0 0 20px #ffffff4a, 0 0 20px #00ffab45;
@@ -33,14 +40,18 @@
 
 html {
     position: relative;
+    overflow: hidden;
 }
 
 body {
-    overflow-x: hidden;
+    overflow-x: hidden; 
     position: relative;
     margin: 0;
     background-color: #000;
     image-rendering: pixelated;
+    background-image: url(assets/extended_bg_img.png);
+    background-size: cover;
+    background-position: center;
 }
 
 h2 {
@@ -81,6 +92,12 @@ a {
 }
 a:hover {
     text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    font-family: cascadia mono;
 }
 
 #bg {
@@ -128,6 +145,25 @@ a:hover {
     background-color: #000000a8;
 }
 
+#banner {
+    image-rendering: initial;
+    margin-left: 8px;
+    margin-top: 15px;
+    margin-bottom: 13px;
+    width: 630px;
+    height: 70px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    animation: slide 60s infinite;
+}
+@keyframes slide {
+    0% {background-image: url(assets/cyberpunk-2077.gif);}
+    33% {background-image: url(assets/vhs.gif);}
+    66% {background-image: url(assets/asda.gif);}
+    100% {background-image: url(assets/bladerunner.gif);}
+}
+
 @media screen and (max-width:601px) {
     @supports(-moz-appearance:none) {
         body {
@@ -140,7 +176,7 @@ a:hover {
             text-shadow:var(--firefox-green-shadow)!important
         }
     }
-    body:before {
+    body::before {
         content: "";
         position: fixed;
         opacity: .2;
@@ -152,13 +188,14 @@ a:hover {
         z-index: 1000;
         background-image: url(assets/overlay.png);
         background-position: 0 0;
+        background-repeat: repeat;
         animation-name: Static;
         animation-duration: 2s;
         animation-iteration-count: infinite;
         animation-timing-function: steps(4);
         box-shadow: inset 0 0 10em rgb(0 0 0/40%)
     }
-    body:after {
+    body::after {
         content: "";
         position: fixed;
         opacity: .2;
@@ -169,7 +206,7 @@ a:hover {
         pointer-events: none;
         z-index: 1000;
         background-image: url(assets/overlay2.png);
-        background-repeat: all;
+        background-repeat: repeat;
         background-position: 0 0;
         animation-name: Static;
         animation-duration: .8s;
@@ -191,15 +228,37 @@ a:hover {
 }
 @keyframes Static {
     0% {
-        background-position: 0 0
+        background-position: 0 0;
     }
     100% {
-        background-position: 0 4px
+        background-position: 0 4px;
+    }
+}
+
+.static-overlay {
+    position: absolute;
+    inset: -200%;
+    background-image: url(assets/overlay2.png);
+    background-size: auto;
+    background-repeat: repeat;
+    opacity: 20%;
+    z-index: 1000;
+    pointer-events: none;
+    animation: shift .8s reverse linear infinite;
+}
+@keyframes shift {
+    0% {
+        transform: translateY(4px);
+    }
+    100% {
+        transform: translateY(-4px);
     }
 }
 
 #container {
     width: 900px;
+    position: relative;
+    overflow: hidden;
     display: flex;
     text-align: justify;
     margin: 0 auto;
@@ -228,6 +287,11 @@ a:hover {
     image-rendering: pixelated;
     text-rendering: optimizeSpeed;
     text-rendering: geometricPrecision;
+}
+
+#work-box {
+    font-family: cascadia mono;
+    font-size: 13px;
 }
 
 .box {
@@ -268,3 +332,4 @@ a:hover {
     width: 100px;
     height: 100px;
 }
+
