@@ -119,6 +119,15 @@ a:hover {
     }
 }
 
+#logo {
+    font-family: neon retro;
+    font-size: 70px;
+    color: var(--link-color);
+    height: 85px;
+    text-align: center;
+    background-color: #000000a8;
+}
+
 @media screen and (max-width:601px) {
     @supports(-moz-appearance:none) {
         body {
@@ -175,6 +184,10 @@ a:hover {
     .marquee {
         width: 900px;
     }
+
+    #logo {
+        width: 900px;
+    }
 }
 @keyframes Static {
     0% {
@@ -193,14 +206,6 @@ a:hover {
     padding-top: 10px;
 }
 
-#logo {
-    font-family: neon retro;
-    font-size: 70px;
-    color: var(--link-color);
-    height: 85px;
-    text-align: center;
-    background-color: #000000a8;
-}
 #logosmall {
     font-family: pixel nes;
     font-size: 30px;
