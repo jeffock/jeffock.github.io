@@ -184,6 +184,16 @@ footer {
     }
 }
 
+#container {
+    width: 900px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    text-align: justify;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
 @media screen and (max-width:601px) {
     @supports(-moz-appearance:none) {
         body {
@@ -232,6 +242,14 @@ footer {
         animation-timing-function: steps(4);
     }
 
+    #container {
+        width: 900px;
+        display: flex;
+        text-align: justify;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+
     .static-overlay {
         display: none;
     }
@@ -255,16 +273,6 @@ footer {
     100% {
         background-position: 0 4px;
     }
-}
-
-#container {
-    width: 900px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    text-align: justify;
-    margin: 0 auto;
-    padding-top: 10px;
 }
 
 #logosmall {
