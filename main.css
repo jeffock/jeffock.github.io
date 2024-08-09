@@ -164,6 +164,26 @@ footer {
     100% {background-image: url(assets/bladerunner.gif);}
 }
 
+.static-overlay {
+    position: absolute;
+    inset: -200%;
+    background-image: url(assets/overlay2.png);
+    background-size: auto;
+    background-repeat: repeat;
+    opacity: 20%;
+    z-index: 1000;
+    pointer-events: none;
+    animation: shift .8s reverse linear infinite;
+}
+@keyframes shift {
+    0% {
+        transform: translateY(4px);
+    }
+    100% {
+        transform: translateY(-4px);
+    }
+}
+
 @media screen and (max-width:601px) {
     @supports(-moz-appearance:none) {
         body {
@@ -182,14 +202,13 @@ footer {
         opacity: .2;
         left: 0;
         top: 0;
-        width: 100%;
-        height: 100%;
+        background-size: auto;
         pointer-events: none;
         z-index: 1000;
         background-image: url(assets/overlay.png);
         background-position: 0 0;
         background-repeat: repeat;
-        animation-name: Static;
+        animation-name: shift;
         animation-duration: 2s;
         animation-iteration-count: infinite;
         animation-timing-function: steps(4);
@@ -201,17 +220,20 @@ footer {
         opacity: .2;
         left: 0;
         top: 0;
-        width: 100%;
-        height: 100%;
+        background-size: auto;
         pointer-events: none;
         z-index: 1000;
         background-image: url(assets/overlay2.png);
         background-repeat: repeat;
         background-position: 0 0;
-        animation-name: Static;
+        animation-name: shift;
         animation-duration: .8s;
         animation-iteration-count: infinite;
         animation-timing-function: steps(4);
+    }
+
+    .static-overlay {
+        display: none;
     }
 
     #bg {
@@ -232,26 +254,6 @@ footer {
     }
     100% {
         background-position: 0 4px;
-    }
-}
-
-.static-overlay {
-    position: absolute;
-    inset: -200%;
-    background-image: url(assets/overlay2.png);
-    background-size: auto;
-    background-repeat: repeat;
-    opacity: 20%;
-    z-index: 1000;
-    pointer-events: none;
-    animation: shift .8s reverse linear infinite;
-}
-@keyframes shift {
-    0% {
-        transform: translateY(4px);
-    }
-    100% {
-        transform: translateY(-4px);
     }
 }
 
