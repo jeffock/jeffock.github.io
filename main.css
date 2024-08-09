@@ -131,6 +131,14 @@ a:hover {
         animation-iteration-count: infinite;
         animation-timing-function: steps(4);
     }
+
+    #bg {
+        width: 900px;
+    }
+
+    .marquee {
+        width: 900px;
+    }
 }
 @keyframes Static {
     0% {
