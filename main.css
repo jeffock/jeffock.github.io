@@ -214,43 +214,7 @@ footer {
         overflow-x: hidden;
         position: static;
     }
-
-    body:before {
-        content: "";
-        position: fixed;
-        opacity: .2;
-        left: 0;
-        top: 0;
-        background-size: auto;
-        pointer-events: none;
-        z-index: 1000;
-        background-image: url(assets/overlay.png);
-        background-position: 0 0;
-        background-repeat: repeat;
-        animation-name: shift;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
-        animation-timing-function: steps(4);
-        box-shadow: inset 0 0 10em rgb(0 0 0/40%)
-    }
-    body:after {
-        content: "";
-        position: fixed;
-        opacity: .2;
-        left: 0;
-        top: 0;
-        background-size: auto;
-        pointer-events: none;
-        z-index: 1000;
-        background-image: url(assets/overlay2.png);
-        background-repeat: repeat;
-        background-position: 0 0;
-        animation-name: shift;
-        animation-duration: .8s;
-        animation-iteration-count: infinite;
-        animation-timing-function: steps(4);
-    }
-
+    
     #container {
         width: 900px;
         display: flex;
