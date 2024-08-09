@@ -210,9 +210,11 @@ footer {
     html {
         position: relative;
     }
+
     body {
         overflow-x: hidden;
         position: static;
+        display: flex;
     }
     
     #container {
