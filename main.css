@@ -213,7 +213,7 @@ footer {
 
     body {
         overflow-x: hidden;
-        position: static;
+        position: relative;
         display: flex;
     }
     
