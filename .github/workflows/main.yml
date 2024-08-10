@@ -1,0 +1,24 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Build and Deploy
+      env:
+        GARA_API_KEY: ${{ secrets.GARA_API_KEY }}
+        GARA_CLIENT_ID: ${{ secrets.GARA_CLIENT_ID }}
+        GA_VIEW_ID: ${{ secrets.GA_ViEW_ID }}
+      run: |
+        # Use your secret here
+        echo $GARA_API_KEY
+        echo $GARA_CLIENT_ID
+        echo $GA_VIEW_ID
+        # Build and deploy your site
