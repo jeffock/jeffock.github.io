@@ -39,13 +39,10 @@
 }
 
 html {
-    position: relative;
-    overflow: hidden;
+
 }
 
 body {
-    overflow-x: hidden; 
-    position: relative;
     margin: 0;
     background-color: #000;
     image-rendering: pixelated;
@@ -187,14 +184,15 @@ footer {
 #container {
     width: 900px;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
+    
     display: flex;
     text-align: justify;
     margin: 0 auto;
     padding-top: 10px;
 }
 
-@media screen and (max-width:601px) {
+@media screen and (max-width:899px) {
     @supports(-moz-appearance:none) {
         body {
             text-shadow:var(--firefox-body-shadow)!important
@@ -207,27 +205,20 @@ footer {
         }
     }
 
-    html {
-        position: relative;
-    }
-
     body {
-        overflow-x: hidden;
-        position: static;
         width: 900px;
     }
     
     #container {
+        overflow: hidden;
         width: 900px;
-        display: flex;
         text-align: justify;
         margin: 0 auto;
         padding-top: 10px;
+        padding-left: 20px;
     }
 
     .static-overlay {
-        position: relative;
-        display: none;
     }
 
     #bg {
@@ -242,6 +233,7 @@ footer {
         width: 900px;
     }
 }
+
 @keyframes Static {
     0% {
         background-position: 0 0;
