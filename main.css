@@ -147,7 +147,7 @@ footer {
     margin-left: 8px;
     margin-top: 15px;
     margin-bottom: 13px;
-    width: 630px;
+    width: 650px;
     height: 70px;
     background-size: cover;
     background-position: center;
@@ -156,9 +156,9 @@ footer {
 }
 @keyframes slide {
     0% {background-image: url(assets/cyberpunk-2077.gif);}
-    33% {background-image: url(assets/vhs.gif);}
-    66% {background-image: url(assets/asda.gif);}
-    100% {background-image: url(assets/bladerunner.gif);}
+    33% {background-image: url(assets/fallen-angels-green.gif);}
+    66% {background-image: url(assets/br2049.gif);}
+    100% {background-image: url(assets/ocean-waves-train.gif);}
 }
 
 .static-overlay {
@@ -270,6 +270,14 @@ footer {
 #work-box {
     font-family: cascadia mono;
     font-size: 13px;
+}
+
+#menu-img {
+    border-radius: 5px;
+    width: 210px;
+    height: 200px;
+    display: inline;
+    margin: 7px;
 }
 
 .box {
