@@ -11,6 +11,19 @@
         <meta name="author" content="Jeffrey Ock">
         <link rel="stylesheet" type="text/css" href="main.css">
     </head>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PX9Y3TPD6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-6PX9Y3TPD6');
+    </script>
+
+
     <body>
         <img id="bg" src="assets/extended_bg_img.png">
         <br>
@@ -185,7 +198,11 @@
 
                             <img id="menu-img" src="assets/sleeping-small.gif">
 
-                            <!--add view count thing-->
+                            <div class="hitcounterbox">
+                                <div id="pre-hit">
+                                    <iframe style="border:none" src="hitcounter.htm" name="hitcounter" width="180" height="60"></iframe>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
