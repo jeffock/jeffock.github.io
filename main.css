@@ -216,6 +216,7 @@ footer {
         margin: 0 auto;
         padding-top: 10px;
         padding-left: 20px;
+        padding-right: 20px;
     }
 
     .static-overlay {
@@ -226,11 +227,11 @@ footer {
     }
 
     .marquee {
-        width: 900px;
+        width: 940px;
     }
 
     #logo {
-        width: 900px;
+        width: 940px;
     }
 }
 
