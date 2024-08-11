@@ -60,9 +60,9 @@ setInterval(() => {
 gapi.load('client:auth2', () => {
     gapi.client.init({
         //TEMP
-        apiKey: 'AIzaSyCa1v1c2vgvJoypmb-fVE8ku3s7ljhkb1U',
+        apiKey: '',
         //TEMP
-        clientId: '701668174350-p5on6kgs902c60pdhvrrhlel2otd4f2d.apps.googleusercontent.com',
+        clientId: '',
         discoveryDocs: ['https://analyticsreporting.googleapis.com/$discovery/rest?version=v4'],
         scope: 'https://www.googleapis.com/auth/analytics.readonly',
     }).then(() => {
@@ -77,7 +77,7 @@ function queryReports() {
         reportRequests: [
             {
                 //TEMP
-                viewId: '8560721453',
+                viewId: '',
                 dateRanges: [{ startDate: '2024-08-10', endDate: 'today' }],
                 metrics: [{ expression: 'ga:users' }],
                 dimensions: [{ name: 'ga.pageTitle' }],
