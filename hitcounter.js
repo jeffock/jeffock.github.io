@@ -82,9 +82,6 @@ async function fetchPlausibleData() {
             throw new Error('Network response was not ok');
         }
 
-        console.log(response);
-        const data = await response.text(); // Use text() if it’s HTML
-
         // Parse HTML response
         const text = await response.text();
 
