@@ -61,7 +61,7 @@ setInterval(() => {
 async function fetchPlausibleData() {
     try {
         const response = await fetch('https://orngevkmucghqisxqeas.supabase.co/functions/v1/plausible-api', { // Replace with your function URL
-            method: 'POST', // Or 'POST' if your function expects POST requests
+            method: 'GET', // Or 'POST' if your function expects POST requests
         });
 
         if (!response.ok) {
