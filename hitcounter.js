@@ -59,39 +59,43 @@ setInterval(() => {
 
 // env secret format: const var = process.env.NAME_OF_VAR;
 
-gapi.load('client:auth2', () => {
-    gapi.client.init({
-        //TEMP
-        apiKey: '',
-        //TEMP
-        clientId: '',
-        discoveryDocs: ['https://analyticsreporting.googleapis.com/$discovery/rest?version=v4'],
-        scope: 'https://www.googleapis.com/auth/analytics.readonly',
-    }).then(() => {
-        gapi.auth2.getAuthInstance().signIn().then(() => {
-            queryReports();
+// Replace with your Plausible API key and site ID
+const API_KEY = process.env.PLAU_API_KEY;
+const SITE_ID = 'jeffock.net';
+
+// Function to fetch data from Plausible API
+async function fetchPlausibleData() {
+    try {
+        const response = await fetch(`https://plausible.io/api/v1/stats/aggregate?site_id=${SITE_ID}`, {
+            headers: {
+                'Authorization': `Bearer ${API_KEY}`
+            }
         });
-    });
-});
 
-function queryReports() {
-    gapi.client.analyticsreporting.reports.batchGet({
-        reportRequests: [
-            {
-                //TEMP
-                viewId: '',
-                dateRanges: [{ startDate: '2024-08-10', endDate: 'today' }],
-                metrics: [{ expression: 'ga:users' }],
-                dimensions: [{ name: 'ga.pageTitle' }],
-            },
-        ],
-    }).then(response => {
-        const data = response.result.reports[0].data;
-        const pageTitles = data.rows.map(row => row.dimensions[0]);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
 
-        // Render data 
-        document.getElementById('pagetitle').innerHTML = pageTitles.join('<br>');
-    }).catch(error => {
-        console.error('Error fetching data', error);
-    });
+        const data = await response.json();
+        updateMetrics(data);
+    } catch (error) {
+        console.error('Error fetching Plausible data:', error);
+        document.getElementById('total').innerText = 'Error';
+        document.getElementById('unique').innerText = 'Error';
+        document.getElementById('online').innerText = 'Error';
+    }
 }
+
+// Function to update the metrics in the HTML
+function updateMetrics(data) {
+    document.getElementById('total').innerText = data.total_visitors || 'N/A';
+    document.getElementById('unique').innerText = data.unique_visitors || 'N/A';
+    document.getElementById('online').innerText = data.current_visitors || 'N/A';
+}
+
+// Fetch and display data on page load
+fetchPlausibleData();
+// set interval ms
+setInterval(fetchPlausibleData, 60000);
+
+
