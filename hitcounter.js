@@ -57,15 +57,12 @@ setInterval(() => {
 }, 5000);
 **/
 
+
 // Function to fetch data from your Supabase Edge Function
 async function fetchPlausibleData() {
     try {
         const response = await fetch('https://orngevkmucghqisxqeas.supabase.co/functions/v1/papi-service', { // Replace with your function URL
             method: 'GET', // Or 'POST' if your function expects POST requests
-            headers: {
-                'Authorization': `Bearer ${jwtToken}`,
-                'Content-Type': 'application/json'
-            }
         });
 
         if (!response.ok) {
