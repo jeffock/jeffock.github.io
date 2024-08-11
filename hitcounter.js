@@ -57,6 +57,8 @@ setInterval(() => {
 }, 5000);
 **/
 
+// env secret format: const var = process.env.NAME_OF_VAR;
+
 gapi.load('client:auth2', () => {
     gapi.client.init({
         //TEMP
