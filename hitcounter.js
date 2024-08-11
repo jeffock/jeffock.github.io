@@ -45,19 +45,6 @@ setTimeout(() => {
 }, 10);
 
 /**
-setInterval(() => {
-    fetch("https://dimden.dev/services/hitcounter/raw")
-        .then((i) => i.text())
-        .then((i) => {
-            let [hits, visitors, online] = i.split(",");
-            document.getElementById("hits").innerText = hits;
-            document.getElementById("visitors").innerText = visitors;
-            document.getElementById("online").innerText = online;
-        });
-}, 5000);
-**/
-
-
 // Function to fetch data from your Supabase Edge Function
 async function fetchPlausibleData() {
     try {
@@ -84,6 +71,39 @@ function updateMetrics(data) {
     document.getElementById('total').innerText = data.total_visitors || 'N/A';
     document.getElementById('unique').innerText = data.unique_visitors || 'N/A';
     document.getElementById('online').innerText = data.current_visitors || 'N/A';
+}
+*/
+
+async function fetchPlausibleData() {
+    try {
+        const response = await fetch('https://plausible.io/jeffock.net'); // Public dashboard URL
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        console.log(response);
+        const data = await response.text(); // Use text() if it’s HTML
+
+        // For example, if data is HTML, you might extract information using DOM parsing
+        // If data is JSON, parse it directly
+        // Example below assumes data is HTML and contains specific text
+
+        // Simulated extraction, replace with actual extraction logic
+        const totalVisitors = 'Extracted Total'; // Replace with actual extraction
+        const uniqueVisitors = 'Extracted Unique'; // Replace with actual extraction
+        const currentVisitors = 'Extracted Current'; // Replace with actual extraction
+
+        document.getElementById('total').innerText = totalVisitors;
+        document.getElementById('unique').innerText = uniqueVisitors;
+        document.getElementById('online').innerText = currentVisitors;
+
+    } catch (error) {
+        console.error('Error fetching Plausible data:', error);
+        document.getElementById('total').innerText = 'Error';
+        document.getElementById('unique').innerText = 'Error';
+        document.getElementById('online').innerText = 'Error';
+    }
 }
 
 // Fetch and display data on page load
