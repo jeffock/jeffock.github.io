@@ -17,4 +17,6 @@ jobs:
         GARA_CLIENT_ID: ${{ secrets.GARA_CLIENT_ID }}
         GA_VIEW_ID: ${{ secrets.GA_ViEW_ID }}
         PLAU_API_KEY: ${{ secrets.PLAU_API_KEY }}
+      run: |
+        echo PLAU_API_KEY
 
