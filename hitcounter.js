@@ -85,14 +85,22 @@ async function fetchPlausibleData() {
         console.log(response);
         const data = await response.text(); // Use text() if it’s HTML
 
+        // Parse HTML response
+        const text = await response.text();
+
+        // Create a temporary DOM element to parse the HTML
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        console.log(doc);
+
         // For example, if data is HTML, you might extract information using DOM parsing
         // If data is JSON, parse it directly
         // Example below assumes data is HTML and contains specific text
 
         // Simulated extraction, replace with actual extraction logic
-        const totalVisitors = 'Extracted Total'; // Replace with actual extraction
-        const uniqueVisitors = 'Extracted Unique'; // Replace with actual extraction
-        const currentVisitors = 'Extracted Current'; // Replace with actual extraction
+        const totalVisitors = '0'; // Replace with actual extraction
+        const uniqueVisitors = '0'; // Replace with actual extraction
+        const currentVisitors = '0'; // Replace with actual extraction
 
         document.getElementById('total').innerText = totalVisitors;
         document.getElementById('unique').innerText = uniqueVisitors;
