@@ -68,7 +68,7 @@ async function fetchPlausibleData() {
     try {
         const response = await fetch(`https://plausible.io/api/v1/stats/aggregate?site_id=${SITE_ID}`, {
             headers: {
-                'Authorization': `Bearer ${API_KEY}`
+                'Authorization': `Bearer ${PLAU_API_KEY}`
             }
         });
 
