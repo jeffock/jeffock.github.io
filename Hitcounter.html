@@ -1,9 +1,21 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Content-Security-Policy" 
+<html lang="en">
+    <head>
+    
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PX9Y3TPD6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-6PX9Y3TPD6');
+        </script>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Security-Policy" 
             content=
                 " 
                 style-src 'unsafe-inline';
@@ -12,196 +24,188 @@
                 'unsafe-inline'
                 'unsafe-eval';**"
         >
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hitcounter</title>
-<style>
-        :root {
-            --font: "MS UI Gothic";
-            --font-size: 15px;
-        }
-        body {
-            background-color: black;
-            color: rgb(0, 255, 55);
-            margin: 0;
-            overflow: hidden;
-        }
-        @font-face {
-            font-family: "Digital";
-            src: url("fonts/ttf/digital-7.ttf?") format("truetype");
-            font-weight: normal;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: "minecraft";
-            src:
-                url(fonts/ttf/Minecraftia-Regular.ttf) format("truetype");
-            font-weight: 200;
-        font-style: normal;
-        }
-        .counter {
-            font-family: Digital;
-            float: right;
-            right: 0;
-            position: absolute;
-            font-size: 20px;
-        }
-        .green {
-            z-index: 5;
-        }
-        .gray {
-            z-index: -1;
-            color: #797979;
-            opacity: 0.3;
-        }
-        .text {
-            float: left;
-            font-family: minecraft, monospace;
-            font-size: 11px;
-        }
-        .top {
-            margin-bottom: 2px;
-        }
-        .middle {
-            margin-top: 3px;
-        }
-        .bottom {
-            margin-top: 7px;
-        }
-</style>
-    <!--TODO-->
-    <!--initialize gapi-\->
-    <script src="https://apis.google.com/js/api.js"></script>
-    <!-\-script using gapi-\->
-    <script src="hitcounter.js" defer></script>-->
-</head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hitcounter</title>
+        <style>
+                :root {
+                    --font: "MS UI Gothic";
+                    --font-size: 15px;
+                }
+                body {
+                    background-color: black;
+                    color: rgb(0, 255, 55);
+                    margin: 0;
+                    overflow: hidden;
+                }
+                @font-face {
+                    font-family: "Digital";
+                    src: url("fonts/ttf/digital-7.ttf?") format("truetype");
+                    font-weight: normal;
+                    font-style: normal;
+                }
+                @font-face {
+                    font-family: "minecraft";
+                    src:
+                        url(fonts/ttf/Minecraftia-Regular.ttf) format("truetype");
+                    font-weight: 200;
+                font-style: normal;
+                }
+                .counter {
+                    font-family: Digital;
+                    float: right;
+                    right: 0;
+                    position: absolute;
+                    font-size: 20px;
+                }
+                .green {
+                    z-index: 5;
+                }
+                .gray {
+                    z-index: -1;
+                    color: #797979;
+                    opacity: 0.3;
+                }
+                .text {
+                    float: left;
+                    font-family: minecraft, monospace;
+                    font-size: 11px;
+                }
+                .top {
+                    margin-bottom: 2px;
+                }
+                .middle {
+                    margin-top: 3px;
+                }
+                .bottom {
+                    margin-top: 7px;
+                }
+        </style>
+        <!--TODO-->
+        <!--initialize gapi-\->
+        <script src="https://apis.google.com/js/api.js"></script>
+        <!-\-script using gapi-\->
+        <script src="hitcounter.js" defer></script>-->
+    </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6PX9Y3TPD6"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'G-6PX9Y3TPD6');
-</script>
+    <body>
+        <div style="float: left;">
+            <b class="text">Visits:</b><br>
+            <b class="text">Uniq. Visitors:</b><br>
+            <b class="text">On-site:</b>
+        </div>
+        <div style="position: fixed; right: 0">
+            <span class="counter green top" id="hits" style="margin-bottom:100px">0</span><br>
+            <span class="counter green middle" id="visitors">0</span><br>
+            <span class="counter green bottom" id="online">0</span><br>
+        </div>
+        <div style="position: fixed; right: 0; z-index: -1">
+            <span class="counter gray top">00000000</span><br>
+            <span class="counter gray middle">00000000</span><br>
+            <span class="counter gray bottom">00000000</span>
+            <!--TEST-->
+            <br><br><br>
+            <span id="pagetitle" class="green">pagetitle</span>
+        </div>
 
-<body>
-<div style="float: left;">
-    <b class="text">Visits:</b><br>
-    <b class="text">Uniq. Visitors:</b><br>
-    <b class="text">On-site:</b>
-</div>
-<div style="position: fixed; right: 0">
-    <span class="counter green top" id="hits" style="margin-bottom:100px">0</span><br>
-    <span class="counter green middle" id="visitors">0</span><br>
-    <span class="counter green bottom" id="online">0</span><br>
-</div>
-<div style="position: fixed; right: 0; z-index: -1">
-<span class="counter gray top">00000000</span><br>
-<span class="counter gray middle">00000000</span><br>
-<span class="counter gray bottom">00000000</span>
-<!--TEST-->
-<br><br><br>
-<span id="pagetitle" class="green">pagetitle</span>
-</div>
+        <!--
+        <script>
+            // fallback font
+            (function (document) {
+                var width;
+                var body = document.body;
 
-<!--
-<script>
-    // fallback font
-    (function (document) {
-        var width;
-        var body = document.body;
+                var container = document.createElement("span");
+                container.innerHTML = Array(100).join("wi");
+                container.style.cssText = [
+                    "position:absolute",
+                    "width:auto",
+                    "font-size:128px",
+                    "left:-99999px",
+                ].join(" !important;");
 
-        var container = document.createElement("span");
-        container.innerHTML = Array(100).join("wi");
-        container.style.cssText = [
-            "position:absolute",
-            "width:auto",
-            "font-size:128px",
-            "left:-99999px",
-        ].join(" !important;");
+                var getWidth = function (fontFamily) {
+                    container.style.fontFamily = fontFamily;
 
-        var getWidth = function (fontFamily) {
-            container.style.fontFamily = fontFamily;
+                    body.appendChild(container);
+                    width = container.clientWidth;
+                    body.removeChild(container);
 
-            body.appendChild(container);
-            width = container.clientWidth;
-            body.removeChild(container);
+                    return width;
+                };
 
-            return width;
-        };
+                // Pre compute the widths of monospace, serif & sans-serif
+                // to improve performance.
+                var monoWidth = getWidth("monospace");
+                var serifWidth = getWidth("serif");
+                var sansWidth = getWidth("sans-serif");
 
-        // Pre compute the widths of monospace, serif & sans-serif
-        // to improve performance.
-        var monoWidth = getWidth("monospace");
-        var serifWidth = getWidth("serif");
-        var sansWidth = getWidth("sans-serif");
+                window.isFontAvailable = function (font) {
+                    return (
+                        monoWidth !== getWidth(font + ",monospace") ||
+                        sansWidth !== getWidth(font + ",sans-serif") ||
+                        serifWidth !== getWidth(font + ",serif")
+                    );
+                };
+            })(document);
 
-        window.isFontAvailable = function (font) {
-            return (
-                monoWidth !== getWidth(font + ",monospace") ||
-                sansWidth !== getWidth(font + ",sans-serif") ||
-                serifWidth !== getWidth(font + ",serif")
-            );
-        };
-    })(document);
+            setTimeout(() => {
+                if (!isFontAvailable("MS UI Gothic")) {
+                    const root = document.querySelector(":root");
+                    root.style.setProperty("--font-size", "12px");
+                }
+            }, 10);
+            /**
+            setInterval(() => {
+                fetch("https://dimden.dev/services/hitcounter/raw")
+                    .then((i) => i.text())
+                    .then((i) => {
+                        let [hits, visitors, online] = i.split(",");
+                        document.getElementById("hits").innerText = hits;
+                        document.getElementById("visitors").innerText = visitors;
+                        document.getElementById("online").innerText = online;
+                    });
+            }, 5000);
+            **/
 
-    setTimeout(() => {
-        if (!isFontAvailable("MS UI Gothic")) {
-            const root = document.querySelector(":root");
-            root.style.setProperty("--font-size", "12px");
-        }
-    }, 10);
-    /**
-    setInterval(() => {
-        fetch("https://dimden.dev/services/hitcounter/raw")
-            .then((i) => i.text())
-            .then((i) => {
-                let [hits, visitors, online] = i.split(",");
-                document.getElementById("hits").innerText = hits;
-                document.getElementById("visitors").innerText = visitors;
-                document.getElementById("online").innerText = online;
-            });
-    }, 5000);
-    **/
-
-    gapi.load('client:auth2', () => {
-        gapi.client.init({
-            //TEMP
-            apiKey: 'AIzaSyCa1v1c2vgvJoypmb-fVE8ku3s7ljhkb1U',
-            //TEMP
-            clientId: '701668174350-p5on6kgs902c60pdhvrrhlel2otd4f2d.apps.googleusercontent.com',
-            discoveryDocs: ['https://analyticsreporting.googleapis.com/$discovery/rest?version=v4'],
-            scope: 'https://www.googleapis.com/auth/analytics.readonly',
-        }).then(() => {
-            gapi.auth2.getAuthInstance().signIn().then(() => {
-                queryReports();
-            });
-        });
-    });
-
-    function queryReports() {
-        gapi.client.analyticsreporting.reports.batchGet({
-            reportRequests: [
-                {
+            gapi.load('client:auth2', () => {
+                gapi.client.init({
                     //TEMP
-                    viewId: '8560721453',
-                    dateRanges: [{startDate: '2024-08-10',endDate:'today'}],
-                    metrics: [{expression:'ga:users'}],
-                    dimensions: [{name:'ga.pageTitle'}],
-                },
-            ],
-        }).then(response => {
-            const data = response.result.reports[0].data;
-            const pageTitles = data.rows.map(row => row.dimensions[0]);
+                    apiKey: 'AIzaSyCa1v1c2vgvJoypmb-fVE8ku3s7ljhkb1U',
+                    //TEMP
+                    clientId: '701668174350-p5on6kgs902c60pdhvrrhlel2otd4f2d.apps.googleusercontent.com',
+                    discoveryDocs: ['https://analyticsreporting.googleapis.com/$discovery/rest?version=v4'],
+                    scope: 'https://www.googleapis.com/auth/analytics.readonly',
+                }).then(() => {
+                    gapi.auth2.getAuthInstance().signIn().then(() => {
+                        queryReports();
+                    });
+                });
+            });
 
-            //render data 
-            document.getElementById('pagetitle').innerHTML = pageTitles.join('<br>');
-        }).catch(error => {
-            console.error('Error fetching data',error);
-        });
-    }
-</script>
--->
+            function queryReports() {
+                gapi.client.analyticsreporting.reports.batchGet({
+                    reportRequests: [
+                        {
+                            //TEMP
+                            viewId: '8560721453',
+                            dateRanges: [{startDate: '2024-08-10',endDate:'today'}],
+                            metrics: [{expression:'ga:users'}],
+                            dimensions: [{name:'ga.pageTitle'}],
+                        },
+                    ],
+                }).then(response => {
+                    const data = response.result.reports[0].data;
+                    const pageTitles = data.rows.map(row => row.dimensions[0]);
 
-</body></html>
+                    //render data 
+                    document.getElementById('pagetitle').innerHTML = pageTitles.join('<br>');
+                }).catch(error => {
+                    console.error('Error fetching data',error);
+                });
+            }
+        </script>
+        -->
+
+    </body>
+</html>
