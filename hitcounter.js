@@ -60,7 +60,7 @@ setInterval(() => {
 // env secret format: const var = process.env.NAME_OF_VAR;
 
 // Replace with your Plausible API key and site ID
-const API_KEY = process.env.PLAU_API_KEY;
+const API_KEY = {$process.env.PLAU_API_KEY};
 const SITE_ID = 'jeffock.net';
 
 // Function to fetch data from Plausible API
