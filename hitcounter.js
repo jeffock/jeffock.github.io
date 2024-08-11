@@ -57,19 +57,11 @@ setInterval(() => {
 }, 5000);
 **/
 
-// env secret format: const var = process.env.NAME_OF_VAR;
-
-// Replace with your Plausible API key and site ID
-const API_KEY = process.env.PLAU_API_KEY;
-const SITE_ID = 'jeffock.net';
-
-// Function to fetch data from Plausible API
+// Function to fetch data from your Supabase Edge Function
 async function fetchPlausibleData() {
     try {
-        const response = await fetch(`https://plausible.io/api/v1/stats/aggregate?site_id=${SITE_ID}`, {
-            headers: {
-                'Authorization': `Bearer ${PLAU_API_KEY}`
-            }
+        const response = await fetch('https://orngevkmucghqisxqeas.supabase.co/functions/v1/plausible-api', { // Replace with your function URL
+            method: 'GET', // Or 'POST' if your function expects POST requests
         });
 
         if (!response.ok) {
@@ -97,5 +89,4 @@ function updateMetrics(data) {
 fetchPlausibleData();
 // set interval ms
 setInterval(fetchPlausibleData, 60000);
-
 
