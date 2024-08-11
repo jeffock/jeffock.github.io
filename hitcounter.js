@@ -61,7 +61,7 @@ setInterval(() => {
 // Function to fetch data from your Supabase Edge Function
 async function fetchPlausibleData() {
     try {
-        const response = await fetch('https://cryptic-headland-94862.herokuapp.com/orngevkmucghqisxqeas.supabase.co/functions/v1/papi-service', { // Replace with your function URL
+        const response = await fetch('https://cryptic-headland-94862.herokuapp.com/https://orngevkmucghqisxqeas.supabase.co/functions/v1/papi-service', { // Replace with your function URL
             method: 'GET', // Or 'POST' if your function expects POST requests
         });
 
