@@ -72,7 +72,6 @@ function updateMetrics(data) {
     document.getElementById('unique').innerText = data.unique_visitors || 'N/A';
     document.getElementById('online').innerText = data.current_visitors || 'N/A';
 }
-*/
 
 async function fetchPlausibleData() {
     try {
@@ -99,6 +98,13 @@ async function fetchPlausibleData() {
         const uniqueVisitors = '0'; // Replace with actual extraction
         const currentVisitors = '0'; // Replace with actual extraction
 
+        //https://plausible.io/jeffock.net?period=all&keybindHint=A
+        //"unique visitor": id=visitors
+        //"total visits": id=visits
+        //"total pageviews": id=pageviews
+        //https://plausible.io/jeffock.net?period=realtime&keybindHint=R
+        //"current visitors": class="font-bold text-xl dark:text-gray-100"
+
         document.getElementById('total').innerText = totalVisitors;
         document.getElementById('unique').innerText = uniqueVisitors;
         document.getElementById('online').innerText = currentVisitors;
@@ -115,4 +121,30 @@ async function fetchPlausibleData() {
 fetchPlausibleData();
 // set interval ms
 setInterval(fetchPlausibleData, 60000);
+*/
+
+async function updateMetrics() {
+    try {
+        // Fetch data from the Supabase Edge Function
+        const response = await fetch('https://fathomless-scrubland-86700-da348ae19a5a.herokuapp.com/https://orngevkmucghqisxqeas.supabase.co/functions/v1/papi-service');
+        const data = await response.json();
+
+        if (response.ok) {
+            // Update the HTML elements with the fetched data
+            document.getElementById('online').textContent = data.online || '0';
+            document.getElementById('total').textContent = data.pageviews || '0';
+            document.getElementById('unique').textContent = data.visitors || '0';
+        } else {
+            console.error('Error fetching data:', data.error);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Call the function to update metrics
+updateMetrics();
+
+// Optionally, set up an interval to update the metrics periodically
+setInterval(updateMetrics, 5 * 60 * 1000); // Update every 5 minutes
 
