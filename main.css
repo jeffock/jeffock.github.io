@@ -33,6 +33,7 @@
 :root {
     --body-text-shadow: 0 0 20px #ffffff4a, 0 0 20px #00ffab45;
     --green-text-shadow: 0 0 20px #08bd9882;
+    --neon-text-shadow: 0 0 30px #2c9080;
     --link-color: #2c9080;
     --firefox-body-shadow: 0 0 20px #ffffff31, 0 0 20px #00ffab45;
     --firefox-green-shadow: 0 0 20px #08bd994f;
@@ -106,6 +107,16 @@ footer {
     position: absolute;
 }
 
+.table-marquee {
+    grid-column-gap: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    overflow: hidden;
+    flex-shrink: 0;
+    flex: none;
+    justify-content: space-around;
+}
+
 .marquee {
     width: 100%;
     grid-column-gap: 1rem;
@@ -124,6 +135,9 @@ footer {
 .scroll {
     animation: scroll 40s linear infinite;
 }
+.scroll-reverse {
+    animation: scroll 2s reverse linear infinite;
+}
 @keyframes scroll {
     from {
         transform: translateX(0);
@@ -137,6 +151,7 @@ footer {
     font-family: neon retro;
     font-size: 70px;
     color: var(--link-color);
+    text-shadow: var(--neon-text-shadow);
     height: 85px;
     text-align: center;
     background-color: #000000a8;
