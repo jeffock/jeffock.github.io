@@ -146,5 +146,5 @@ async function updateMetrics() {
 updateMetrics();
 
 // Optionally, set up an interval to update the metrics periodically
-setInterval(updateMetrics, 5 * 60 * 1000); // Update every 5 minutes
+setInterval(updateMetrics, 3000); // Update every 5 minutes
 
