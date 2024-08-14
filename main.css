@@ -293,7 +293,7 @@ footer {
     #side-box {
         width: 50px;
         position: absolute;
-        margin-right: 0;
+        margin-right: -10px;
         display:flex;
         justify-content: flex-start;
         opacity:0.85;
