@@ -196,15 +196,27 @@ footer {
     }
 }
 
+#body-container {
+    width: 900px;
+    margin: 0 auto;
+}
+
 #container {
     width: 900px;
     position: relative;
     overflow: hidden;
-    
     display: flex;
     text-align: justify;
     margin: 0 auto;
     padding-top: 10px;
+}
+
+#side-container {
+    display: none;
+}
+
+#side-box {
+    display: none;
 }
 
 @media screen and (max-width:899px) {
@@ -234,6 +246,10 @@ footer {
         padding-right: 20px;
     }
 
+    #side-container {
+        display: none;
+    }
+
     .static-overlay {
     }
 
@@ -247,6 +263,39 @@ footer {
 
     #logo {
         width: 940px;
+    }
+}
+@media screen and (min-width:1050px) {
+    @supports(-moz-appearance:none) {
+        body {
+            text-shadow:var(--firefox-body-shadow)!important
+        }
+        h2 {
+            text-shadow:var(--firefox-green-shadow)!important
+        }
+        a {
+            text-shadow:var(--firefox-green-shadow)!important
+        }
+    }
+    #body-container {
+        width: 982px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        margin: 0 auto;
+    }
+    #side-container {
+        position: relative;
+        display: flex;
+        margin: 0 auto;
+    }
+    #side-box {
+        width: 50px;
+        position: absolute;
+        margin-right: 0;
+        display:flex;
+        justify-content: flex-start;
+        opacity:0.85;
     }
 }
 
@@ -345,4 +394,6 @@ footer {
     width: 100px;
     height: 100px;
 }
+
+
 
