@@ -40,7 +40,6 @@
 }
 
 html {
-
 }
 
 body {
@@ -387,6 +386,14 @@ footer {
     width: 25px;
     height: 25px;
     margin-right: 5px;
+}
+
+#art-icon {
+    padding-top: 10px;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    border-radius: 5px;
 }
 
 #jeffpfp {
