@@ -288,7 +288,7 @@ footer {
     #side-container {
         position: relative;
         display: flex;
-        margin: 0 auto;
+        margin-right: auto;
     }
     #side-box {
         width: 50px;
