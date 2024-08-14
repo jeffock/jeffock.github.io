@@ -278,7 +278,7 @@ footer {
         }
     }
     #body-container {
-        width: 982px;
+        width: 988px;
         position: relative;
         overflow: hidden;
         display: flex;
@@ -286,16 +286,16 @@ footer {
         padding-top: 10px;
     }
     #side-container {
+        width: 88px;
         position: relative;
         display: flex;
-        margin-right: auto;
+        margin-right: -15px;
     }
     #side-box {
-        width: 50px;
+        width: 88px;
         position: absolute;
         margin-right: -10px;
-        display:flex;
-        justify-content: flex-start;
+        display:inline;
         opacity:0.85;
     }
 }
