@@ -59,18 +59,22 @@ async function fetchCount(query) {
     return String(data.count).replace(/[^0-9]/g, "") || "0";
 }
 
-async function updateMetrics() {
-    const today = new Date().toISOString().slice(0, 10);
-    try {
-        const [total, todayCount] = await Promise.all([
-            fetchCount(""),
-            fetchCount("start=" + today),
-        ]);
-        document.getElementById("total").textContent = total;
-        document.getElementById("today").textContent = todayCount;
-    } catch (error) {
-        console.error("Error fetching visitor counts:", error);
+// Update one counter independently, retrying once on a network blip
+async function updateCounter(id, query) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+        try {
+            document.getElementById(id).textContent = await fetchCount(query);
+            return;
+        } catch (error) {
+            if (attempt === 1) console.error("Error fetching " + id + " count:", error);
+        }
     }
+}
+
+function updateMetrics() {
+    const today = new Date().toISOString().slice(0, 10);
+    updateCounter("total", "");
+    updateCounter("today", "start=" + today);
 }
 
 updateMetrics();
