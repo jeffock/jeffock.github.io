@@ -131,7 +131,6 @@ async function updateMetrics() {
 
         if (response.ok) {
             // Update the HTML elements with the fetched data
-            document.getElementById('online').textContent = data.online || '0';
             document.getElementById('total').textContent = data.pageviews || '0';
             document.getElementById('unique').textContent = data.visitors || '0';
         } else {

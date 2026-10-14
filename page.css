@@ -40,10 +40,12 @@
 }
 
 html {
+    overscroll-behavior: none;
 }
 
 body {
     margin: 0;
+    overscroll-behavior: none;
     background-color: #000;
     image-rendering: pixelated;
     background-image: url(assets/extended_bg_img.png);
