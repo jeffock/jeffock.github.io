@@ -44,106 +44,34 @@ setTimeout(() => {
     }
 }, 10);
 
-/**
-// Function to fetch data from your Supabase Edge Function
-async function fetchPlausibleData() {
-    try {
-        const response = await fetch('https://fathomless-scrubland-86700-da348ae19a5a.herokuapp.com/https://orngevkmucghqisxqeas.supabase.co/functions/v1/papi-service', { // Replace with your function URL
-            method: 'GET', // Or 'POST' if your function expects POST requests
-        });
+// GoatCounter public visitor counter (requires "Allow adding visitor counts
+// on your website" in GoatCounter settings). Responses are cached for up to
+// four hours on GoatCounter's side, so there's no point polling often.
+const GOATCOUNTER = "https://jeffock.goatcounter.com/counter/TOTAL.json";
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        updateMetrics(data);
-    } catch (error) {
-        console.error('Error fetching Plausible data:', error);
-        document.getElementById('total').innerText = 'Error';
-        document.getElementById('unique').innerText = 'Error';
-        document.getElementById('online').innerText = 'Error';
-    }
+async function fetchCount(query) {
+    const response = await fetch(GOATCOUNTER + (query ? "?" + query : ""));
+    // 404 means no visitors recorded yet for that range
+    if (response.status === 404) return "0";
+    if (!response.ok) throw new Error("GoatCounter returned " + response.status);
+    const data = await response.json();
+    // count is a formatted string like "1,234"; strip separators for the display
+    return String(data.count).replace(/[^0-9]/g, "") || "0";
 }
-
-// Function to update the metrics in the HTML
-function updateMetrics(data) {
-    document.getElementById('total').innerText = data.total_visitors || 'N/A';
-    document.getElementById('unique').innerText = data.unique_visitors || 'N/A';
-    document.getElementById('online').innerText = data.current_visitors || 'N/A';
-}
-
-async function fetchPlausibleData() {
-    try {
-        const response = await fetch('https://plausible.io/jeffock.net'); // Public dashboard URL
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        // Parse HTML response
-        const text = await response.text();
-
-        // Create a temporary DOM element to parse the HTML
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        console.log(doc);
-
-        // For example, if data is HTML, you might extract information using DOM parsing
-        // If data is JSON, parse it directly
-        // Example below assumes data is HTML and contains specific text
-
-        // Simulated extraction, replace with actual extraction logic
-        const totalVisitors = '0'; // Replace with actual extraction
-        const uniqueVisitors = '0'; // Replace with actual extraction
-        const currentVisitors = '0'; // Replace with actual extraction
-
-        //https://plausible.io/jeffock.net?period=all&keybindHint=A
-        //"unique visitor": id=visitors
-        //"total visits": id=visits
-        //"total pageviews": id=pageviews
-        //https://plausible.io/jeffock.net?period=realtime&keybindHint=R
-        //"current visitors": class="font-bold text-xl dark:text-gray-100"
-
-        document.getElementById('total').innerText = totalVisitors;
-        document.getElementById('unique').innerText = uniqueVisitors;
-        document.getElementById('online').innerText = currentVisitors;
-
-    } catch (error) {
-        console.error('Error fetching Plausible data:', error);
-        document.getElementById('total').innerText = 'Error';
-        document.getElementById('unique').innerText = 'Error';
-        document.getElementById('online').innerText = 'Error';
-    }
-}
-
-// Fetch and display data on page load
-fetchPlausibleData();
-// set interval ms
-setInterval(fetchPlausibleData, 60000);
-*/
 
 async function updateMetrics() {
+    const today = new Date().toISOString().slice(0, 10);
     try {
-        // Fetch data from the Supabase Edge Function
-        const response = await fetch('https://fathomless-scrubland-86700-da348ae19a5a.herokuapp.com/https://orngevkmucghqisxqeas.supabase.co/functions/v1/papi-service');
-        const data = await response.json();
-
-        if (response.ok) {
-            // Update the HTML elements with the fetched data
-            document.getElementById('total').textContent = data.pageviews || '0';
-            document.getElementById('unique').textContent = data.visitors || '0';
-        } else {
-            console.error('Error fetching data:', data.error);
-        }
+        const [total, todayCount] = await Promise.all([
+            fetchCount(""),
+            fetchCount("start=" + today),
+        ]);
+        document.getElementById("total").textContent = total;
+        document.getElementById("today").textContent = todayCount;
     } catch (error) {
-        console.error('Error:', error);
+        console.error("Error fetching visitor counts:", error);
     }
 }
 
-// Call the function to update metrics
 updateMetrics();
-
-// Optionally, set up an interval to update the metrics periodically
-setInterval(updateMetrics, 3000); // Update every 5 minutes
-
+setInterval(updateMetrics, 15 * 60 * 1000);
