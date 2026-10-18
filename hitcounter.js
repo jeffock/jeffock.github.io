@@ -44,38 +44,27 @@ setTimeout(() => {
     }
 }, 10);
 
-// GoatCounter public visitor counter (requires "Allow adding visitor counts
-// on your website" in GoatCounter settings). Responses are cached for up to
-// four hours on GoatCounter's side, so there's no point polling often.
-const GOATCOUNTER = "https://jeffock.goatcounter.com/counter/TOTAL.json";
+// Cloudflare Worker counter, source in counter-worker/worker.js
+const COUNTER = "https://hitcounter.jeffock1656.workers.dev";
 
-async function fetchCount(query) {
-    const response = await fetch(GOATCOUNTER + (query ? "?" + query : ""));
-    // 404 means no visitors recorded yet for that range
-    if (response.status === 404) return "0";
-    if (!response.ok) throw new Error("GoatCounter returned " + response.status);
-    const data = await response.json();
-    // count is a formatted string like "1,234"; strip separators for the display
-    return String(data.count).replace(/[^0-9]/g, "") || "0";
-}
-
-// Update one counter independently, retrying once on a network blip
-async function updateCounter(id, query) {
-    for (let attempt = 0; attempt < 2; attempt++) {
-        try {
-            document.getElementById(id).textContent = await fetchCount(query);
-            return;
-        } catch (error) {
-            if (attempt === 1) console.error("Error fetching " + id + " count:", error);
-        }
+async function updateMetrics(method) {
+    let url = COUNTER;
+    if (method === "POST") {
+        // localStorage can throw when storage is blocked; then just don't count as unique
+        try { if (!localStorage.getItem("counted")) url += "?new=1"; } catch {}
+    }
+    try {
+        const response = await fetch(url, { method });
+        if (!response.ok) throw new Error("Counter returned " + response.status);
+        const data = await response.json();
+        if (url.endsWith("?new=1")) try { localStorage.setItem("counted", "1"); } catch {}
+        document.getElementById("total").textContent = data.visits;
+        document.getElementById("unique").textContent = data.uniques;
+    } catch (error) {
+        console.error("Error fetching visitor counts:", error);
     }
 }
 
-function updateMetrics() {
-    const today = new Date().toISOString().slice(0, 10);
-    updateCounter("total", "");
-    updateCounter("today", "start=" + today);
-}
-
-updateMetrics();
-setInterval(updateMetrics, 15 * 60 * 1000);
+// count this visit once, then just refresh the numbers
+updateMetrics("POST");
+setInterval(() => updateMetrics("GET"), 60 * 1000);
