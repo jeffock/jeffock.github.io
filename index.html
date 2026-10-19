@@ -60,6 +60,22 @@
             </div>      
         </div>
 
+        <div id="donate-popup">
+            <button id="donate-close" aria-label="Close">×</button>
+            <a href="/">
+                <img src="assets/sitepet.png" alt="Donate" width="137" height="186">
+                <br><span id="donate-text">i love doordash</span>
+            </a>
+        </div>
+        <script>
+            // remember a closed popup; storage can throw when it's blocked
+            try { if (localStorage.getItem("donateClosed")) document.getElementById("donate-popup").remove(); } catch {}
+            document.getElementById("donate-close")?.addEventListener("click", () => {
+                document.getElementById("donate-popup").remove();
+                try { localStorage.setItem("donateClosed", "1"); } catch {}
+            });
+        </script>
+
         <div id="body-container">
 
         <div id="side-container">

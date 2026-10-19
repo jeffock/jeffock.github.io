@@ -324,6 +324,38 @@ footer {
     vertical-align: baseline;
 }
 
+/* only shown when it fits left of the 988px #body-container: 988 + 2 * (171 box + 16 gap) + scrollbar slack */
+#donate-popup {
+    display: none;
+    position: fixed;
+    top: 245px;
+    right: calc(50% + 494px + 16px);
+    /* same footprint the .box had, so the 1400px breakpoint still holds and × stays off the image */
+    padding: 12px 17px;
+    text-align: center;
+    font-family: cascadia mono;
+    font-size: 13px;
+}
+@media screen and (min-width: 1400px) {
+    #donate-popup {
+        display: block;
+    }
+}
+#donate-text {
+    position: relative;
+    top: -15px;
+}
+#donate-close {
+    position: absolute;
+    top: 16px;
+    right: 35px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 #menutd {
     width: 25%;
     vertical-align: baseline;
