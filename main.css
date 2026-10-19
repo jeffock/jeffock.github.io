@@ -341,6 +341,11 @@ footer {
     font-size: 13px;
 }
 
+#blog-menu {
+    font-family: cascadia mono;
+    font-size: 13px;
+}
+
 #menu-img {
     border-radius: 5px;
     width: 210px;
