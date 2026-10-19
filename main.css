@@ -50,7 +50,7 @@ body {
     overscroll-behavior: none;
     background-color: #000;
     image-rendering: pixelated;
-    background-image: url(assets/extended_bg_img.png);
+    background-image: url(assets/extended_bg_img_blur.png);
     background-size: cover;
     background-position: center;
 }
