@@ -77,9 +77,10 @@
         <div id="container">
             <div class="static-overlay"></div>
             
-            <table style="max-width:900px;max-height:1000px">
+            <!-- height:1px on table and row lets #menu-col fill the cell in Firefox; they still grow to fit -->
+            <table style="max-width:900px;max-height:1000px;height:1px">
                 <tbody>
-                    <tr>
+                    <tr style="height:1px">
                         <td id="maintd" style="max-width: 675px">
                             <div class="box">
                                 <img id="mudkip" src="assets/butterflies.gif">
@@ -239,6 +240,8 @@
                             </div>
                         </td>
                         <td id="menutd" style="max-width: 225px">
+                            <div id="menu-col">
+                            <div>
                             <div id="linksdiv" class="box">
                                 <img id="mudkip" src="assets/butterflies.gif">
                                 <h2 style="display:inline">links!</h2>
@@ -325,9 +328,106 @@
                                     <iframe style="border:none" src="hitcounter.html" name="hitcounter" width="180" height="46"></iframe>
                                 </div>
                             </div>
+                            </div>
 
-                            <div id="blog-menu" class="box" style="margin-top: 10px">
-                                <span style="font-family: pixel nes"><b>MY BLOG!</b></span>
+                            <!-- 5px, not 10px: flex items don't collapse margins with the hitcounter's 5px -->
+                            <div id="blog-menu" class="box" style="margin-top: 5px">
+                                <span style="font-family: pixel nes;font-size:16px"><b>MY BLOG!</b></span>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
+                                <br>
+                                <br>
+                                <b>
+                                    <a href="pages/blog/placeholder.html">> placeholder</a>
+                                </b>
                                 <br>
                                 <br>
                                 <b>
@@ -338,6 +438,7 @@
                                 <a id="resume-link" class="navlink" href="resume_short.pdf" style="color: white;">☁️ Resume</a>
                                 <br>
                                 -->
+                            </div>
                             </div>
 
                         </td>

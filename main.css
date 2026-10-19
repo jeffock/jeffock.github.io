@@ -327,6 +327,13 @@ footer {
 #menutd {
     width: 25%;
     vertical-align: baseline;
+    height: 100%;
+}
+
+#menu-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 #chaewon {
@@ -344,6 +351,10 @@ footer {
 #blog-menu {
     font-family: cascadia mono;
     font-size: 13px;
+    /* fill the rest of the column down to the footer, scroll if the posts don't fit */
+    flex: 1 1 0;
+    min-height: 150px;
+    overflow-y: auto;
 }
 
 #menu-img {
