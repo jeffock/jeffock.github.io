@@ -324,12 +324,13 @@ footer {
     vertical-align: baseline;
 }
 
-/* only shown when it fits left of the 988px #body-container: 988 + 2 * (171 box + 16 gap) + scrollbar slack */
+/* bottom-right corner by default; left of the 988px #body-container once it fits: 988 + 2 * (171 box + 16 gap) + scrollbar slack */
 #donate-popup {
-    display: none;
     position: fixed;
-    top: 245px;
-    right: calc(50% + 494px + 16px);
+    bottom: 16px;
+    right: 16px;
+    /* above everything, including the .static-overlay at 1000 */
+    z-index: 1001;
     /* same footprint the .box had, so the 1400px breakpoint still holds and × stays off the image */
     padding: 12px 17px;
     text-align: center;
@@ -338,7 +339,9 @@ footer {
 }
 @media screen and (min-width: 1400px) {
     #donate-popup {
-        display: block;
+        top: 245px;
+        bottom: auto;
+        right: calc(50% + 494px + 16px);
     }
 }
 #donate-text {
